@@ -1,0 +1,6 @@
+Hola mundo desde nvim!
+
+
+
+Este es el primer archivo que escribo
+desde que lei el tutorial de nvim.
