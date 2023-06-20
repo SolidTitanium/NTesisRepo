@@ -488,7 +488,7 @@ esta definida como
 
 \begin{equation*}
     \mathrm{d}_{\mathrm{b}}\cpar{\mathrm{dgm}_{1},\mathrm{dgm}_{2}} =
-    \inf_{\text{matching }m}\max_{\cpar{p,q}\in m}\cabs{p-q}_{\infty}.
+    \inf_{\text{empar. }m}\max_{\cpar{p,q}\in m}\cnorm{p-q}_{\infty}.
 \end{equation*}
 
 El c\'alculo pr\'actico de la distancia de cuella de botella se resume en
@@ -498,7 +498,7 @@ podemos utilizar algoritmos cl\'asicos.
 La distancia de cuello de botella es una m\'etrica parecida a una m\'etrica $\mathit{L}_{\infty}$.
 Resulta ser una m\'etrica natural para expresar las propiedades de estabilidad de los
 diagramas de persistencia presentados en la secci\'on \ref{sec: 4.7},
-pero sufre de las mismas desventajas que las m\'etricas usuales en $\mathcal{L}_{\infty}$,
+pero sufre de las mismas desventajas que las m\'etricas usuales en $\mathit{L}_{\infty}$,
 esta completamente determinada por la mayor distancia entre los pares
 y no toma en cuenta la cercania de los pares de puntos restantes.
 Una variante para superar este problema, es la distancia de Wasserstein entre diagramas.
@@ -506,7 +506,7 @@ Dada $p\geq 1$, se define como
 
 \begin{equation*}
     \mathrm{W}_{p}\cpar{\mathrm{dgm}_{1},\mathrm{dgm}_{2}}^{p} =
-    \inf_{\text{matching }m}\sum_{\cpar{p,q}\in m}cabs{p-q}_{infty}^{p}
+    \inf_{\text{empar. }m}\sum_{\cpar{p,q}\in m}\cnorm{p-q}_{\infty}^{p}
 \end{equation*}
 
 Se han presentado resultados de utilidad acerca de la persistencia en la m\'etrica $\mathrm{W}_{p}$,
@@ -520,4 +520,40 @@ donde muchas propiedades importantes de los diagramas de persistencia pueden pro
 
 \section{Propiedades de Estabilidad en los Diagramas de Persistencia}\label{sec: 4.7}
 
-Hi
+Una propiedad fundamental de la homolog\'ia persistente es que
+los diagramas de persistencia de filtraciones construidas sobre conjuntos de datos
+resultan ser muy estables con respecto a ciertas perturbaciones de los datos.
+Para formalizar y cuantificar dichas propiedades, primero necesitamos ser precisos
+con respecto a que perturbaciones son permitidas.
+
+En lugar de trabajar directamente con filtraciones sobre conjuntos de datos,
+resulta ser m\'as conveniente definir una noci\'on de proximidad entre m\'odulos
+de persistencia, de donde derivaremos un resultado de estabilidad general para la
+homolog\'ia persistente. Entonces, la mayoria de los resultados de estabilidad
+para filtraciones especificas ser\'an consecuencia de este teorema general.
+Para evitar discuciones t\'ecnicas y sin p\'erdida de generalidad, suponemos
+que los m\'odulos de persistencia considerados est\'an indexados por $\mathbb{R}$.
+
+\begin{definicion}
+    Sean $\mathbb{B}$, $\mathbb{W}$ dos m\'odulos de persistencia indexados por
+    $\mathbb{R}$. Dado $\delta\in\mathbb{R}$, un homomorfismo de grado $\delta$ entre
+    $\mathbb{V}$ y $\mathbb{W}$ es una colecci\'on $\Phi$ de funciones lineales
+    $\phi_{r}:V_{r}\rightarrow W_{r+\delta}$, para todo $r\in\mathbb{R}$ tal que
+    para cualquier $r\leq s$, $\phi_{r}\circ v_{s}^{r}=w_{s+\delta}^{r+\delta}\circ\phi_{r}$.
+\end{definicion}
+
+Un ejemplo importante de un homomorfismo de grado $\delta$ es el endomorfismo de cambio
+$\mathrm{1}_{\mathbb{V}}^{\delta}$ el cual consiste de las familias de funciones lineales
+$\cpar{v_{r+\delta}^{r}}$. N\'otese que los homomorfismos de m\'odulos pueden ser
+naturalmente compuestos; la compisici\'on de un homomorfismo $\Psi$ de grado $\delta$
+entre $\mathbb{U}$ y $\mathbb{V}$ y un homomorfismo $\Phi$ de grado $\delta'$ entre
+$\mathbb{V}$ y $\mathbb{W}$ naturalmente da lugar a un homomorfismo $\Phi\Psi$ de
+grado $\delta + \delta'$ entre $\mathbb{U}$ y $\mathbb{W}$.
+
+\begin{definicion}
+    Sea $\delta\geq 0$. Dos m\'odulos de persistencia $\mathbb{V}$, $\mathbb{W}$
+    son $delta$-intercalados si existen dos homomorfismos de grado $\delta$,
+    $\Phi$, de $\mathbb{V}$ a $\mathbb{W}$ y $\Psi$ de $\mathbb{W}$ a $\mathbb{V}$
+    tales que $\Psi\Phi = \mathrm{1}_{\mathbb{V}}^{2\delta}$ y
+    $\Phi\Psi = \mathrm{1}_{\mathbb{W}}^{2\delta}$.
+\end{definicion}
