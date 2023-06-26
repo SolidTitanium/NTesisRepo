@@ -59,7 +59,7 @@ son construidas en conjuntos finitos y son, en si, finitas. Por ejemplo, cuando 
 el complejo de Vietoris-Rips $Rips_{r}\cpar{\mathbb{X}}$ cambia solo en un numero finito de \'indices,
 $r$. Esto nos permite manejarlos de manera sencilla desde una perspectiva algebraica.
 
-\section{Algunos Ejemplos}
+\section{Algunos Ejemplos}\label{sec: 4.2}
 
 Dada una filtraci\'on $\mathit{Filt} = \cpar{F_{r}}_{r\in T}$ de un complejo simplicial o un espacio
 topol\'ogico, la homolog\'ia de $F_{r}$ cambia cuando $r$ incrementa; pueden aparecen nuevos componentes
@@ -609,7 +609,7 @@ El \emph{Teorema \ref{teo:EstPersist}} tambi\'en implica el siguiente resultado
 de estabilidad para los diagramas de persistencia de filtraciones construidas sobre
 conjuntos de datos.
 
-\begin{teorema}
+\begin{teorema}\label{teo:4.9}
     Sean $\mathbb{X}$ y $\mathbb{Y}$ dos espacios m\'etricos compactos y sean
     $\mathrm{Filt}\cpar{\mathbb{X}}$ y $\mathrm{Filt}\cpar{\mathbb{Y}}$ las
     filtraciones de Vietoris-Rips o de \v Cech contruidos sobre $\mathbb{X}$ y
@@ -625,3 +625,11 @@ conjuntos de datos.
     diagramas de persistencia de las filtraciones $\mathrm{Filt}\cpar{\mathbb{X}}$ y
     $\mathrm{Filt}\cpar{\mathbb{Y}}$.
 \end{teorema}
+
+Como notamos en el Ejemplo 3 de la Secci\'on \ref{sec: 4.2}, los diagramas de persistencia pueden
+ser interpretados como character\'isticos topol\'ogicos multiescala de 
+$\mathbb{X}$ y $\mathbb{Y}$. Adem\'as, el Teorema \ref{teo:4.9} nos dice que estos
+character\'isticos son resilientes con respecto a perturbaciones de los datos en la
+m\'etrica de Gromov-Hasudorff. As\'i, pueden ser usados como propiedades discriminatorias
+para tareas de clasificaci\'on entre otras (vease, por ejemplo, Chazal et al. (2009)\cite{chazal2009b}
+para un aplicaci\'on a la clasificaci\'on no r\'igida de figuras 3D).
