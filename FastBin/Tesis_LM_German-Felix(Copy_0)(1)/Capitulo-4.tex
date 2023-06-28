@@ -647,6 +647,30 @@ para los paisajes.
     \begin{enumerate}[label=(\roman*)]
         \item $\lambda\cpar{k,t}\geq\lambda\cpar{k+1,t}\geq 0$.
         \item $\cabs{\lambda\cpar{k,t}-\lambda'\cpar{k,t}}\geq
-        \mathrm{d}_{\mathrm{b}}\cpar{\mathrm{dgm},\mathrm{dgm'}}$.
+        \mathrm{d}_{\mathrm{b}}\cpar{\mathrm{dgm},\mathrm{dgm}'}$.
     \end{enumerate}
 \end{proposicion}
+
+Una amplia gama de representaciones lineales es continua con respecto a la m\'etrica
+de Wasserstein $\mathrm{W}_{s}$ en el espacio de los diagramas de persistencia y
+con respecto a la norma de Banach para las representaciones lineales de la persistencia.
+En general, no suempre es posible dar una cota superior para el m\'odulo de continuidad
+del operador de representaciones lineales. Sin embargo, en el caso donde $s=1$, es posible
+probar adem\'as un resultado de estabilidad si la funci\'on de peso toma valores peque\~{n}os
+para puntos cercanos a la diagonal. (vease Divol y Lacombe (2020)\cite{Divol2021},
+Hofer et al. (2019)\cite{Hofer2019b}).
+
+\section*{La Estabilidad y la Capacidad Discriminativa de las Representaciones de Persistencia}
+
+Los resultados en el estudio por Divol y Lacombe (2020)\cite{Divol2021} muestran que
+la continuidad y estabilidad solo son posible con funciones de pesos que toman valores peque\~{n}os
+para puntos cercanos a la diagonal. No obstante, en general, no hay raz\'on espec\'ifica para
+considerar que los puntos cercanos a la diagonal son menos importantes, dada alguna tarea de aprendizaje.
+Desde una perspectiva del aprendizaje autom\'atico, tambi\'en es relevante dise\~{n}ar
+representaciones lineales con funciones de peso generales, aunque seria m\'as dif\'icil probar
+la consistencia de los m\'etodos correspondientes sin al menos la continuidad de la representaci\'on.
+Si bien la estabilidad estabilidad es importante, es quiz\'as un requisito muy fuerte
+para muchos de los problemas en la ciencia de datos.
+Posiblemente, dise\~{n}ar representaciones lineales que sean sensibles a partes espec\'ificas de los
+diagramas de persistencia, sea una mejor estrategia en la pr\'actica
+que buscar la estabilidad global de la representaci\'on.
