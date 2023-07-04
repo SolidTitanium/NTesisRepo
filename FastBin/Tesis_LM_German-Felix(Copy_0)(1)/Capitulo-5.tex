@@ -53,3 +53,20 @@ $O\cpar{\frac{\log n}{n}}^{1/b}$. M\'as precisamente, esta tasa
 acota superiormente la tasa de convergencia minimax sobre el conjunta de medidas
 de probabilidad en el espacio m\'etrico $\cpar{M, \rho}$ satisfaciendo el supuesto
 $\cpar{a,b}$-est\'andar en $M$.
+
+\begin{teorema}
+    Chazal et al. (2014)\cite{Chazal2014b} para algunas constantes positivas, $a$ y $b$, sea
+    \begin{equation*}
+        \mathcal{P}:=\cllav{\mu \text{ en } M |
+        \mathbb{X}_{\mu}\text{ es compacto y }\forall x\in\mathbb{X}_{\mu},\forall r>0,\hspace{4pt}
+        \mu\cpar{B\cpar{x,r}}\geq\min\cpar{1,ar^{b}}}
+    \end{equation*}
+    Entonces, se tiene que
+    \begin{equation*}
+        \sup_{\mu\in\mathcal{P}}\mathbb{E}\ccorch{
+        \mathrm{d}_{\mathrm{b}}\cpar{\mathrm{dgm}\cpar{\mathrm{Filt}\cpar{\mathbb{X}_{\mu}}},
+        \mathrm{dgm}\cpar{\mathrm{Filt}\cpar{\mathbb{X}_{n}}}}}\leq
+        C\cpar{\frac{\log n}{n}}^{1/b}
+    \end{equation*}
+    Donde la constante $C$ depende solo de $a$ y $b$.
+\end{teorema}
