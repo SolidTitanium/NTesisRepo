@@ -99,11 +99,29 @@ Una soluci\'on es estudiar la homolog\'ia persistente de de los conjuntos super-
 de estimadores de densidad (Fasy et al., 2014\cite{Fasy2014b}).
 Otra alternativa, m\'as estrechamente relacionada a la funci\'on distancia, pero robusta al ruido,
 consiste en estudiar la homolog\'ia persistente de conjuntos subnivel de la distancia
-a una medida definida en la secci\'on \ref{sec: 3.3} (Chazal et al., 2017\cite{Chazal2017}).
 
+a una medida definida en la secci\'on \ref{sec: 3.3} (Chazal et al., 2017\cite{Chazal2017}).
 \section{Estad\'isticos de la Homolog\'ia Persistente Calculados en una Nube de Puntos}
 
 Para muchas aplicaciones,
 en especial donde el soporte de la nube de puntos no esta dibujado sobre o es cercano a una figura geom\'etrica,
 los diagramas de persistencia pueden ser dif\'iciles de analizar.
 En particular, muchos caracter\'isticos topol\'ogicos estan cerca de la diagonal.
+Como corresponden  a estructuras topol\'ogicas que viven por un periodo muy corto de tiempo,
+estos puntos son generalmente considerados ruido (ver Figura \ref{fig:Figura 14}).
+Las regiones de confianza para los diagramas de persistencia nos otorgan una respuesta
+de rigor al problema de distingir entre la se\~{n}al y el ruido en estas representaciones.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.85\linewidth]{./figures/Figura14.JPG}
+    \caption{
+        (A, B) Dos diagramas de persistencia para dos configuraciones de la MBP
+        (Maltose-Binding Protein).
+        (C) Configuraci\'on MDS (Multi-Dimensional Scaling)
+        para la matriz de distancias de cuello de botella.
+        (D) Diagrama de persistencia con regi\'on de confianza para la MBP.
+    }
+    \label{fig:Figura 14}
+    \vspace{15pt}
+\end{figure}
