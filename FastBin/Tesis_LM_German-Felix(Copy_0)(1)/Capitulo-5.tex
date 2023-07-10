@@ -115,6 +115,14 @@ de rigor al problema de distingir entre la se\~{n}al y el ruido en estas represe
 Los resultados de estabilidad dados en la secci\'on \ref{sec: 4.7}
 motivan el uso de la distancia de cuello de botella para definir regiones de confianza.
 Sin embargo, distancias alternativas inspiradas en distancias de Wasserstein tambi\'en pueden ser propuestas.
+Cuando se estima un diagrama de persistecia $\mathrm{dgm}$ con un estimador $\widehat{\mathrm{dgm}}$,
+buscamos un valor $\eta_{\alpha}$ tal que
+
+\begin{equation*}
+    P\cpar{\mathrm{d}_{\mathrm{b}}\cpar{\widehat{\mathrm{dgm}},\mathrm{dgm}}\geq\eta_{\alpha}}\leq\alpha,
+\end{equation*}
+
+para $\alpha\in\cpar{0,1}$.
 
 \begin{figure}[ht]
     \centering
