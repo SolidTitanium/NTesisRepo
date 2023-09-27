@@ -164,3 +164,26 @@ Sea $\tilde{\mathbb{X}_{b}}$ un submuestreo de tama\~{n}o $b$ de una muestra
 $\tilde{\mathbb{X}_{n}}$, donde $b = o\cpar{n/\log n}$.
 Sea $\mathrm{q}_{b}\cpar{1 - \alpha}$ un cuantil de la distribuci\'on de
 $\mathrm{Haus}\cpar{\tilde{\mathbb{X}_{b}},\mathbb{X}_{n}}$.
+Sea $\Hat{\eta}_{\alpha}:=2\Hat{q}_{b}\cpar{1-\alpha}$, donde
+$\Hat{q}_{b}$ es una estimaci\'on $\mathrm{q}_{b}\cpar{1-\alpha}$ usando un
+procedimiento de Monte Carlo est\'andar.
+Bajo un supuesto $\cpar{a,b}$ est\'andar y para una $n$ suficientemente grande,
+el estudio por Fasy et al. (2014)\cite{Fasy2014b} muestra que
+
+\begin{equation*}
+    P\cpar{
+        \mathrm{d}_{b}\cpar{
+            \mathrm{dgm}\cpar{\mathrm{Filt}\cpar{K}},
+            \mathrm{dgm}\cpar{\mathrm{Filt}\cpar{\mathbb{X}_{n}}}
+        }
+        >\Hat{\eta}_{\alpha}
+    }
+    \leq
+    P\cpar{
+        \mathrm{Haus}\cpar{K,\mathbb{X}_{n}}>\Hat{\eta}_{\alpha}
+    }
+    \leq
+\alpha+O\cpar{\frac{b}{n}}^\frac{1}{4}.
+\end{equation*}
+
+\section*{Bootstrap de Cuello de Botella}
