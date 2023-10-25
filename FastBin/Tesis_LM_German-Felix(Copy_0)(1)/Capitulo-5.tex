@@ -1,4 +1,4 @@
-\chapter{Aspectos Estad\'isticos de la Homolog\'ia Persistente}\label{chap:Cap5}
+\chapter{Aspectos Estad\'isticos de la Homolog\'ia Persistente}\label{chap:Cap5}cap 5
 
 Por s\'i sola, la homolog\'ia persistente no toma en cuenta la naturaleza estoc\'astica de los datos
 y la variabilidad intrinseca de las cantidades topol\'ogicas que infieren.
@@ -202,5 +202,22 @@ o al los conjutos subnivel de la funci\'on relacionada a esta distribuci\'on
 $\mathbb{R}^{d}$).
 Sea $\cpar{X_{1}^{*},\dots,X_{n}^{*}}$ una muestra de una medida emp\'irica
 definida de las observaciones $\cpar{X_{1},\dots,X_{n}}$.
-Y sea $\Hat{\mathrm{dgm}}^{*}$ el diagrama de persistencia
+Y sea $\widehat{\mathrm{dgm}}^{*}$ el diagrama de persistencia
 derivado de esta muestra.
+Podemos tomar entonces para $\eta_{\alpha}$ la cantidad $\Hat{\eta}_{\alpha}$
+definida por:
+\begin{equation}
+    P\cpar{\mathrm{d_{b}}\cpar{
+    \widehat{\mathrm{dgm}}^{*},\widehat{\mathrm{dgm}}}>\widehat{\eta}_{\alpha}|X_{1},\dots,X_{n}} 
+    =\alpha.
+\end{equation}
+Es de notar que $\Hat{\eta}_{\alpha}$ puede ser estimada con facilidad utilizando
+m\'etodos de Monte Carlo.
+Se ha demostrado en el estudio por Chazal et al. (2016)\cite{Chazal2016b}
+que el bootstrap de cuello de botella es una opci\'on v\'alida para calcular
+los conjuntos subnivel de un estimador de densidad.
+
+\section*{Bootstrap para N\'umeros de Betti Persistentes}
+
+Como se ha mencionado, las regiones de confianza basadas en las propiedades de estabilidad
+de la persistencia suelen dar lugar a regiones de confianza muy conservadoras.
