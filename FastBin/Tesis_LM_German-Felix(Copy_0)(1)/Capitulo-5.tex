@@ -244,3 +244,24 @@ construidos en esta familia.
 \subsection{Tendencia Central para la Homolog\'ia Persistente}
 
 \textbf{\textit{\large Media de Distribuciones de Diagramas}}
+
+Dado que el espacio de diagramas de persistencia es un espacio m\'etrico general pero no
+un espacio de Hilbert, la definici\'on de media en diagramas de persistencia no es obvia ni
+\'unica.
+Un primer acercamiento natural para definir una medida de tendencia central en este contexto
+es considerar la media de Fr\'echet de distribuciones de diagramas.
+Su existencia ha sido demostrada en el estudio por Mileyko et al. (2011)\cite{Mileyko2011},
+y tambi\'en han sido caracterizadas en el estudio por Turner er al. (2014)\cite{Turner2014a}.
+Sin embargo, pueden no ser \'unicas, y resultan complicadas de calcular en la pr\'actica.
+Algunos acercamientos para tratar de solucionar estas problematicas que se han propuesto
+recientemente incluyen la propuesta basada en transporte \'optimo n\'umerico
+Lacombe et al. (2018)\cite{Lacombe2018} as\'i como las representaciones lineales y m\'etodos
+basados en el kernel por Divol y Chazal (2020)\cite{Divol2020}.\medbreak\medbreak
+
+\textbf{\textit{\large Firmas Topol\'ogicas de Submuestras}}
+
+Tambi\'en podemos usar propiedades de tendencia central de la homolog\'ia persistente para
+calcular firmas topol\'ogicas para conjuntos de datos de gran tama\~{n}o,
+como alternativa al prohibitivo costo de los c\'alculos de persistencia.
+Dada una gran nube de puntos, la idea es extraer muchas submuestras,
+calcular el paisaje de persistencia de cada submuestra, y luego combinar la informaci\'on.
