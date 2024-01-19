@@ -13,7 +13,8 @@ $\cpar{M,\rho}$ obtenidas i. i. d. de una medida de probabilidad desconocida $\m
 soporte compacto $\mathbb{X}_{\mu}$ la distancia de Gromov-Hausdorff nos permite comparar
 $\mathbb{X}_{\mu}$ con otros espacios m\'etricos compactos no necesariamente encajados en $M$.
 Definimos a continuaci\'on, $\hat{\mathbb{X}}$ un estimador de $\mathbb{X}_{\mu}$
-como una funci\'on de $X_{1},\dots,X_{n}$ que toma valores en el conjunto de espacios m\'etricos compactos.
+como una funci\'on de $X_{1},\dots,X_{n}$ que toma valores en el conjunto de espacios
+m\'etricos compactos.
 
 Sean $\mathrm{Filt}\cpar{\mathbb{X}_{\mu}}$ y $\mathrm{Filt}\cpar{\hat{\mathbb{X}}}$
 dos filtraciones definidas en $\mathbb{X}_{\mu}$ y $\hat{\mathbb{X}}$.
@@ -276,3 +277,25 @@ en la Secci\'on \ref{sec: 4.4}.
 Concentramos nuestra atenci\'on ahora en el caso de $k=1$ y el conjunto
 $\lambda\cpar{t}=\lambda\cpar{1,t}$.
 Sin embargo, los resultados que presentaremos a continuaci\'on se sostienen para $k>1$.
+El paisaje de persistencia correspondiente (asociado con el diagrama de persistencia
+de la filtraci\'on de \v Cech o Vietoris-Rips) es $\lambda_{X}$
+y denotamos por $\psi_{\mu}^{m}$ la medida inducida por $\mu^{\otimes m}$
+en el espacio de paisajes de persistencia.
+N\'otese que el paisaje de persistencia $\lambda_{X}$ puede ser visto como
+una \'unica muestra de la medida $\lambda_{\mu}^{m}$.
+La esperanza puntual del paisaje de persistencia (aleatorio) bajo esta medida
+se define por $\mathbb{E}_{psi_{\mu}^{m}}\ccorch{\lambda_{X}\cpar{t}}, t\in\ccorch{0,T}$.
+El paisaje promedio $\mathbb{E}_{psi_{\mu}^{m}}\ccorch{\lambda_{X}}$
+tiene una contraparte emp\'irica natural, que puede ser usada como un estimador insesgado.
+Sea $S_{1}^{m},\dots,S_{\ell}^{m}$, $\ell$ muestras independientes de
+tama\~{n}o $m$ de $\lambda^{\otimes m}$. Definimos el paisaje emp\'irico promedio como
+
+\begin{equation}
+    \overline{\lambda_{\ell}^{m}}\cpar{t}=
+    \frac{1}{b}\sum_{i=1}^{b}\lambda_{S_{i}^{m}}\cpar{t},\text{ para todo }t\in\ccorch{0,T},
+\end{equation}
+
+y proponemos usar $\overline{\lambda_{\ell}^{m}}$ para estimar $\lambda_{\mathbb{X}_{\mu}}$.
+N\'otese que calcular la homolog\'ia persistente de $\mathbb{X}_{n}$ es
+$O\cpar{\mathrm{exp}\cpar{n}}$,
+mientras que calcular la del paisaje promedio es $O\cpar{b\hspace{3pt}\mathrm{exp}\cpar{n}}$.
