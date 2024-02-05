@@ -453,3 +453,23 @@ obtenidos de la misma manera consideranda diagramas de persistencia como medidas
 
 Se han propuesto otros resumenes vectoriales para diagramas de persistencia
 con la intenci\'on de ser usados como caracter\'isticas para diversos problemas.
+Por ejemplo, resumenes b\'asicos fueron considerados en el estudio por
+Bonis et al. (2016)\cite{Bonis2016} y combinados con m\'etodos de cuantizaci\'on y
+agrupamiento para abordar problemas de an\'alisis de formas no ri\'gidas;
+curvas de Betti extraidas de diagramas de persistencia fueron utilizadas con
+redes neuronales convolucionales de una dimensi\'on para analizar datos dependientes del
+tiempo y reconocer actividades humanas con medidas de sensores inerciales en los estudios por
+Dindin et al. (2020)\cite{Dindin2017}, Umeda (2017)\cite{Umeda2017};
+imagenes de persistencia introducidas en el estudio por Adams et al. (2017)\cite{Adams2017}
+y se consideraron para  afrontar problemas inversos utilizando
+modelos lineales de aprendizaje autom\'atico
+en el estudio por Obayashi et al. (2018)\cite{Obay2018}.
+
+Los kernels y resumenes vectoriales de los diagramas de persistencia mencionados anteriormente
+fueron construidos independientemente de los an\'alisis o tareas en los que se utilizaron.
+M\'as a\'un en muchos casos, la informaci\'on topol\'ogica relevante no es transportada por
+todo el diagrama de persistencia, sino que se encuentra concentrada en regionas localizadas
+que pueden no ser sencillas de identificar. Esto hace de la elecci\'on del kernel
+o resumen vectorial a considerar una muy dif\'icil para el usuario.
+Para superar este problema, varios autores han propuesto acercamientos de aprendizaje que nos
+permitan identifical las caracter\'isticas topol\'ogicas relevantes para una tarea dada.
