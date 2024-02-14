@@ -102,3 +102,34 @@ $200$ puntos consecutivos de aceleraci\'on en $\mathbb{R}^{3}$.
 Por cada sujeto, se extrajeron $100$ series de tiempo de esta manera.
 El siguiente cloque calcula la persistencia para las filtraciones de complejos alpha para
 una de las $100$ series de tiempo de la aceleraci\'on del sujeto A.
+
+\begin{lstlisting}[language=Python]
+alpha_complex_sample = gd.AlphaComplex(points = data_A_sample)
+simplex_tree_sample = alpha_complex_sample.create_simplex_tree(max_alpha_square = 0.3)
+diag_Alpha = simplex_tree_sample.persistence()
+\end{lstlisting}
+
+Con \verb|diag_Alpha|, podemos calcular y graficar
+los paisajes de persistencia con facilidad (ver Figura \ref{fig:Figura 15}A).
+Para todas las $300$ series de tiempo, calculamos los paisajes de persistencia de
+dimensi\'on $0$ y $1$, y calcylamos los primeros tres paisajes de dimensi\'on $2$.
+M\'as a\'un, cada paisaje de persistencia es discretizado en $1000$ puntos.
+Cada serie de tiempo es entonces descrita por $6000$ variables topol\'ogicas.
+Para predecir al sujeto con estas caracter\'isticas, usamos un bosque aleatorio
+(Breiman, 2001\cite{Breiman2001}), ya que es eficiente cuando se maneja una
+alta dimensionalidad en los datos.
+Separamos nuestros datos en conjuntos de entrenamiento y prueba de manera
+aleatoria varias veces.
+Con esto obtenemos un error de clasificaci\'on promedio alrededor de $0.95$.
+Al utilizar un modelo de bosque aleatorio, tenemos acceso a una visualizaci\'on
+de las variables m\'as importantes (ver Figura\ref{fig:Figura 15}B).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.85\linewidth]{./figures/Figura14.JPG}
+    \caption{
+        PLACEHOLDER
+    }
+    \label{fig:Figura 15}
+    \vspace{15pt}
+\end{figure}
