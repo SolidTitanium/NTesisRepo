@@ -8,7 +8,7 @@ y pandas (McKinney, 2010\cite{McKinney2010}).
 Esta secci\'on se enfoca en demostrar que las firmas topol\'ogicas del ATD
 pueden ser facilmente calculadas y explotadas usando GUDHI.
 Se pueden encontrar m\'as ejemplos en el tutorial de GUDHI en
-GitHub\footnote{https://github.com/GUDHI/TDA-tutorial}.\medskip\medskip
+GitHub\footnote{https://github.com/GUDHI/TDA-tutorial}.
 
 \section{Bootstrap y Comparasi\'on de Configuraciones de Uni\'on de Prote\'inas}
 
@@ -17,3 +17,88 @@ En este art\'iculo, la homolog\'ia persistente es usada para analizar la uni\'on
 prote\'inas, y m\'as precisamente, compara las formas abiertas y cerradas de la
 proteina de uni\'on a la maltosa (MBP), una biomol\'ecula que consiste de
 $370$ residuos de amino\'acidos.
+El an\'anlisis no se basa en distancias geom\'etricas en $\mathbb{R}^{3}$
+sino en una m\'etrica de distancias din\'amicas definida por
+
+\begin{equation*}
+    D_{ij}=1-\cabs{C_{ij}},
+\end{equation*}
+
+donde $C$ son las matrices de correlaci\'on entre los residuos.
+Los datos pueden descargarse en el siguiente
+link\footnote{https://www.researchgate.net/publication/301543862\_corr}.
+
+\begin{lstlisting}[language=Python]
+import numpy as np
+import gudhi as gd
+import pandas as pd
+import seaborn as sns
+
+corr_protein = pd.read_csv("mypath/1anf.corr_1.txt", header=None, delim_whitespace = True)
+dist_protein_1 = 1 - np.abs(corr_protein_1.values)
+rips_complex_1 = gd.RipsComplex(distance_matrix = dist_protein_1, max_edge_length = 1.1)
+simplex_tree_1 = rips_complex_1.create_simplex_tree(max_dimension = 2)
+diag_1 = simplex_tree_1.persistence()
+
+gd.plot_persistence_diagram(diag_1)
+\end{lstlisting}
+
+Para comparar diagramas de persistencia, usamos la distancia de cuello de botella.
+El bloque a continuaci\'on calcula los intervalos de persistencia y
+la distancia de cuello de botella para la $0$-homolog\'ia y $1$-homolog\'ia
+
+\begin{lstlisting}[language=Python]
+interv0_1 = simplex_tree_1.persistence_intervals_in_dimension(0)
+interv0_2 = simplex_tree_2.persistence_intervals_in_dimension(0)
+bot0 = gd.bottleneck_distance(interv0_1, interv0_2)
+
+interv1_1 = simplex_tree_1.persistence_intervals_in_dimension(1)
+interv1_2 = simplex_tree_2.persistence_intervals_in_dimension(1)
+bot1 = gd.bottleneck_distance(interv1_1, interv1_2)
+\end{lstlisting}
+
+De esta manera, podemos calcular la matriz de distancias de cuello de botella entre las
+catorce MBP. Finalmente, aplicamos metodos de reescalado multidimensional (MDS) para
+encontrar la configuraci\'on en $\mathbb{R}^{2}$ que se asimile a las distancias de
+cuello de botella (ver Figura \ref{fig:Figura 14}C).
+Hacemos uso de la libreria scikit-learn para el MDS como sigue:
+
+\begin{lstlisting}[language=Python]
+import matplotlib.pyplot as plt
+from sklearn import manifold
+
+mds = manifold.MDS(n_components2, dissimilarity = "precomputed")
+config = mds.fit(M).embedding_
+
+plt.scatter(cong[0:7,0], config[0:7, 1], color = "red", label="closed")
+plt.scatter(config[7:l,0], config[7:l, 1], color = "blue", label="red")
+plt.legend(loc = 1)
+\end{lstlisting}
+
+Ahora, defnimos una banda de confianza para un diagrama usando el acercamiento
+de bootstrap de cuello  de botella.
+Remuestreamos sobre las lineas (y columnas) de la matriz de distancias,
+y calculamos la distancia de cuello de botella entre el diagrama de persistencia original
+y el diagrama de persistencia bootstrap.
+Repetimos el procedimiento las veces que sean necesareas, y finalmente, estimamos el
+cuantil $95\%$ de esta colecci\'on de distancias de cuello de botella.
+Tomamos el valor del cuantil para definir la banda de confianza en el diagrama original
+(ver Figura \ref{fig:Figura 14}D).
+Sin embargo, se debe ser cuidadoso a la hora de considerar este procedimiento ya que,
+hasta donde sabemos, la valides de bootstrap de cuello0 de botella no ha sido probada
+en este contexto.
+
+\section{Clasificaci\'on de Datos de Sensores}
+En este experimento, la aceleraci\'on (en $3$D) de $3$ sujetos caminando
+(A, B, y C) ha side monitoreada utilizando el sensor de un
+smartphone\footnote{Los datos pueden ser descargados en:
+http://bertrand.michel.perso.math.cnrs.fr/Enseignements/TDA/data\_acc}.
+La homolog\'ia persistente no es sensible a la elecci\'on de ejes,
+así que no es necesario ningun preprocesamiento de los datos para alinear
+las $3$ series de tiempo a los mismos ejes.
+De estas series, se escogieron aleatoriamente extractos de
+$8$ segundos de la serie de tiempo completa, esto es,
+$200$ puntos consecutivos de aceleraci\'on en $\mathbb{R}^{3}$.
+Por cada sujeto, se extrajeron $100$ series de tiempo de esta manera.
+El siguiente cloque calcula la persistencia para las filtraciones de complejos alpha para
+una de las $100$ series de tiempo de la aceleraci\'on del sujeto A.
