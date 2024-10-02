@@ -47,7 +47,7 @@ de funciones distancia y nos ayuda a comparar la topolog\'ia de los cubrimientos
 \end{definicion}
  
 Aqu\'i, los conjuntos compactos son el conjunto de datos $\mathbb{X}_{n}$ y el soporte $M$ de la
-medida $\mu$. Cuando $M$ es una subvariedad compacta suave, bajo ciertas condiciones sobre
+medida $\mu$. Cuando $M$ es una variedad compacta suave, bajo ciertas condiciones sobre
 $d_{H}\left(\mathbb{X}_{n}, M\right)$, para alg\'un $r$ bien escogido, las coberturas de
 $\mathbb{X}_{n}$ son homot\'opicamente equivalentes a $M$, Chazal y Lieutier (2008) \cite{Chazal2008},
 Niyogi et al. (2008) \cite{Niyogi2008} (Ver Figura \ref{fig:Figura 5}). Estos resultados se extienden
@@ -61,15 +61,22 @@ forma subyacente y los datos muestrales.
  
 Estos resultados dependen de la $1$-semiconcavidad del cuadrado de la funci\'on distancia $d_{K}^{2}$,
 esto es, la convexidad de la funci\'on $x\rightarrow\left\|x\right\|^{2}-d_{K}^{2}\left(x\right)$,
-definida de a continuaci\'on.
+definida a continuaci\'on.
  
 \begin{definicion}
     Una funci\'on $\phi:\mathbb{R}^{d}\rightarrow\mathbb{R}_{+}$ es DL (distance-like) si es propia (la
     preimagen de cualquier conjunto compacto en $\mathbb{R}$ bajo $\phi$ es un compacto en
-    $\mathbb{R}^{d}$) y $x\rightarrow\left\|x\right\|^{2}-\phi^{2}\left(x\right)$ es convexa.
+    $\mathbb{R}^{d}$) y la funci\'on $f\cpar{x} = \left\|x\right\|^{2}-\phi^{2}\left(x\right)$ es convexa,
+    es decir, para todo $0\leq t \leq 1$ y cualesquiera $x_{1}, x_{2}\in\mathbb{R}^{d}$ se cumple que:
+    \begin{equation*}
+        f\cpar{t x_{1} + \cpar{1-t}x_{2}} \leq t f\cpar{x_{1}} + \cpar{1-t}f\cpar{x_{2}}.
+    \end{equation*}
 \end{definicion}
  
-Gracias a su semiconcavidad, una funci\'on DL $\phi$ tiene un gradiente
+Por otra parte decimos que $h$ es semic\'oncava si existe $g: \mathbb{R}^{d} \rightarrow \mathbb{R}$
+y $C\geq0$ tal que $g\cpar{x} = h(x) - \frac{C}{2}\cnorm{x}^{2}$ es c\'oncava.
+As\'i, tomando $h = \phi$, $g = -f$ y $C = 2$ tenemos que $\phi^{2}$ es semic\'oncava.
+Gracias a esto una funci\'on DL $\phi$ tiene un gradiente
 $\nabla\phi:\mathbb{R}^{d}\rightarrow\mathbb{R}^{d}$ bien definido, pero no continuo, que puede ser
 integrado en un flujo continuo (Petrunin, 2007 \cite{Petrunin2007}) que permite rastrear la evoluci\'on
 de la topolog\'ia de sus subniveles y compararla a una de los subniveles de funciones DL cercanas.
@@ -128,7 +135,7 @@ de funciones DL cercanas.
 
 \newpage
 
-\begin{teorema}[Teorema de reconstrucci\'on]\label{teoRecon}
+\begin{teorema}[Teorema de Reconstrucci\'on]\label{teoRecon}
     Sean $\phi$, $\psi$ dos funciones DL, tales que
     $\left\|\phi-\psi\right\|_{\infty}\leq\epsilon$, con $\alpha$-alcance
     $\mathrm{reach}_{\alpha}\left(\phi\right)\geq R$ para algunos $\epsilon$ y $\alpha$ positivos.
@@ -148,7 +155,7 @@ extendido para probar que los subniveles son homeomorfos e incluso isot\'opicos
 Consideremos una vez m\'as $\phi = d_{M}$ y $\psi = d_{\mathbb{X}_{n}}$ las funciones distancia
 al soporte de $M$ de la medida $\mu$ y al conjunto de puntos asociados a los datos $\mathbb{X}_{n}$,
 la condici\'on $\mathrm{wfs}_{\alpha}\left(d_{M}\right)\geq R$ puede ser interpretada como una
-condici\'on de regularidad sobre $M$\footnote{Por ejemplo, si $M$ es una subvariedad compacta suave,
+condici\'on de regularidad sobre $M$\footnote{Por ejemplo, si $M$ es una variedad compacta suave,
 el $0$-alcance $\mathrm{reach}_{0}\left(\phi\right)$ siempre es positivo se le llama el alcance de
 $M$ Federer (1959) \cite{Federer1959}}. El teorema de reconstrucci\'on junto con el teorema del nervio
 nos indican que para ciertos valores de $r$, $\eta$ y los $\eta$-cobertura son homot\'opicamente
@@ -171,7 +178,7 @@ $Cech_{r}\left(\mathbb{X}_{n}\right)$ brinda una fiel descripci\'on topol\'ogica
 de un complejo simplicial que normalmente no es adecuado para un procesamiento de datos adicional. Es
 conveniente tener descriptores topol\'ogicos que sean f\'aciles de manejar, en particular descriptores
 num\'ericos, que pueden ser calculados desde el complejo simplicial de manera sencilla. Este segundo
-problema se resuelve al considerar la homolg\'ia del complejo simplicial en cuesti\'on,
+problema se resuelve al considerar la homolog\'ia del complejo simplicial en cuesti\'on,
 tema que se desarrollara a continuaci\'on, por otra parte, el primer problema sera resuelto
 en la siguiente cap\'itulo con la introducci\'on a la homolog\'ia persistente.
 
@@ -265,7 +272,7 @@ $k$-ciclos de $K$, y la imagen de $\partial_{k+1}$ denotada por: $B_{k}\left(K\r
 El operador frontera satisface la siguiente propiedad fundamental:
 
 \begin{equation*}
-    \partial_{k+1}\circ\partial_{k+1}\equiv 0 \text{ para cualquier } k\geq 1.
+    \partial_{k}\circ\partial_{k+1}\equiv 0 \text{ para cualquier } k\geq 1.
 \end{equation*}
 
 \noindent en otras palabras, cualquier $k$-frontera es un $k$-ciclo, esto es,
@@ -273,7 +280,7 @@ $B_{k}\left(K\right)\subseteq Z_{k}\left(K\right)\subseteq C_{k}\left(K\right)$.
 ilustradas en la Figura \ref{fig:Figura 6}.
 
 \begin{definicion}
-    (grupo de homolog\'ia simplicial y n\'umeros de Betti). El $k$-\'esimo grupo de homolog\'ia
+    (Grupo de homolog\'ia simplicial y n\'umeros de Betti). El $k$-\'esimo grupo de homolog\'ia
     (simplicial) de $K$ es el espacio cociente
     
     \begin{equation*}
@@ -289,8 +296,9 @@ existe una $\left(k+1\right)$-cadena $d$ tal que $c'=c+\partial_{k+1}\left(d\rig
 lugar al mismo elemento de $H_{k}$. En otras palabras, los elementos de $H_{k}\left(K\right)$ son clases
 de equivalencia de ciclos hom\'ologos.
 
-Los grupos de homolog\'ia simplicial y los n\'umeros de Betti son invariantes topologicas; si $K$, $K'$
-son dos complejos simpliciales tales que sus realizaciones geom\'etricas son homot\'opicamente
+Los grupos de homolog\'ia simplicial y los n\'umeros de Betti son propiedades topol\'ogicas invariantes bajo homotop\'ias
+(salvo isomorfismos en el caso de los grupos de homolog\'ia simplicial);
+es decir, si $K, K'$ son dos complejos simplicales tales que sus realizaciones geom\'etricas son homot\'opicamente
 equivalentes, entonces sus grupos de homolog\'ia son isomorfos y sus n\'umeros de Betti son iguales.
 
 La homolog\'ia singular es otra noci\'on de homolog\'ia que nos permite considerar una mayor variedad de
@@ -316,7 +324,7 @@ $Cech_{r}\left(X\right)$ tienen grupos de homolog\'ia isomorfos y los mismos n\'
 
 %Nuevos comandos
 
-Adem\'as de esto, tenemos como consecuencia del teorema de reconstrucci\'on \ref{teoRecon} el siguiente
+Adem\'as de esto, tenemos como consecuencia del Teorema de Reconstrucci\'on (teorema \ref{teoRecon}) el siguiente
 resultado que nos auxilia en la estimaci\'on de n\'umeros de Betti.
 
 \begin{teorema}
@@ -369,7 +377,7 @@ que ayuda a identificar las escalas relevantes en las cuales se puede aplicar el
 De acuerdo a los resultados de estabilidad presentados en la secci\'on anterior, un acercamiento
 estad\'istico a la inferencia topol\'ogica se relaciona fuertemente al problema de estimaci\'on de
 soportes de distribuciones y estimaciones de conjuntos nivel bajo la m\'etrica de Hausdorff.
-Afortunadamente se cuenta con una variedad de metodos y resultados que nos atudan a estimar el soporte de
+Afortunadamente se cuenta con una variedad de m\'etodos y resultados que nos ayudan a estimar el soporte de
 una distribuci\'on. Por ejemplo, el estimador de Devroye y Wise
 (Devroye y Wise 1980 \cite{DevroyeWise1980}) definido en una muestra $\mathbb{X}_{n}$ es tambi\'en una
 cobertura  particular de $\mathbb{X}_{n}$. La tasa de convergencia de $\mathbb{X}_{n}$ y el estimador
@@ -384,9 +392,9 @@ Tsybakov, 1997 \cite{Tsybakov1997}) y, particularmente, para la m\'etrica de Hau
 dan lugar al an\'alisis estad\'istico de procesos de inferecia topol\'ogica.
 
 En el estudio por Nigoyi et al (2008) \cite{Niyogi2008}, se muestra que el tipo de homotop\'ia de
-variedades Riemannianas con alcance mayor que cierta constante puede ser recuperado con una
-alta probabilidad de las coberturas de una muestra en (o bien, cerca) de la variedad en cuesti\'on.
-Este articulo fue probablemente el primer intento de considerar la inferencia topol\'ogica en t\'erminos
+variedades Riemannianas con alcance mayor que cierta constante puede ser recuperado, con una
+alta probabilidad, de las cubiertas de una muestra en (o bien, cerca) de la variedad en cuesti\'on.
+Este \'articulo fue probablemente el primer intento de considerar la inferencia topol\'ogica en t\'erminos
 de probabilidad. El estudio por Nigoyi et al.\cite{Niyogi2008} derivo de un argumento de contracci\'on de
 retracto y utiliz\'o cotas estrechas sobre el n\'umero de cobertura de la variedad para controlar
 la distancia de Hausdorff entre la variedad y la nube de puntos observada. La inferencia homol\'ogica
@@ -444,7 +452,7 @@ donde $W_{r}$ es la distancia de Wasserstein para la m\'etrica Euclidiana en $\m
 exponente $r$\footnote{Ver Villiani (2003)\cite{Villiani2003} para la definici\'on de distancia de
 Wasserstein}. Esta propiedad implica que la DAM asociada con distribuciones cercanas en la m\'etrica de
 Wasserstein tienen conjuntos subnivel cercanos. M\'as a\'un, cuando $r=2$, la funci\'on
-$d_{P,m,2}^{2}$ es semiconcava, lo cual asegura fuertes propiedades de regularidad en la
+$d_{P,m,2}^{2}$ es semic\'oncava, lo cual asegura fuertes propiedades de regularidad en la
 geometr\'ia de sus subniveles. Usando estas propiedades, Chazal et al. (2011) \cite{Chazal2011b} mostr\'o
 que bajo suposiciones generales, si $\tilde{P}$ es una distribuci\'on de probabilidad que aproxima a $P$,
 as\'i los conjuntos subnivel de $d_{\tilde{P},m,2}$ proveen una aproximaci\'on topol\'ogicamente
